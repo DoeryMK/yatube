@@ -80,7 +80,11 @@ python manage.py migrate
 ```
 python3 manage.py migrate
 ```
-6. Запустить проект
+6. Перейти в папку yatube/yatube и создать файл .env. В файле указать значение SECRET_KEY. 
+```
+SECRET_KEY = *ваш уникальный секретный ключ Django*
+```
+7. Запустить проект
 ```
 python manage.py runserver
 ```
