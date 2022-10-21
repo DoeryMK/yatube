@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Последние обновления на сайте{% endblock %}
+{% block content %}
+  <div class="container py-5">
+    {% include 'includes/switcher.html' with follow=True %}
+    {% for post in page_obj %}  
+      {% include 'includes/post_card.html' %} 
+    {% endfor %}
+    {% include 'includes/paginator.html' %}
+  </div>
+{% endblock %}
