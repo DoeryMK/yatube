@@ -21,6 +21,7 @@ Pillow==8.3.1
 pytest==6.2.4  
 pytest-django==4.4.0  
 pytest-pythonpath==0.7.3  
+python-dotenv==0.19.0  
 requests==2.26.0  
 six==1.16.0  
 sorl-thumbnail==12.7.0  
