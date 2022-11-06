@@ -5,8 +5,11 @@
 {% block content %}
   {% include 'includes/switcher.html' with index=True %}
   <h1>Последние обновления на сайте</h1>
-  {% for post in page_obj %}
-    {% include 'includes/post_card.html' %}
-  {% endfor %}
-  {% include 'includes/paginator.html' %}
+  {% load cache %}
+  {% cache 20 index_page with page_obj %}  
+    {% for post in page_obj %}
+      {% include 'includes/post_card.html' %}
+    {% endfor %}
+  {% endcache %}
+    {% include 'includes/paginator.html' %}
 {% endblock %}

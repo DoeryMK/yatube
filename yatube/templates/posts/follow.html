@@ -3,9 +3,12 @@
 {% block content %}
   <div class="container py-5">
     {% include 'includes/switcher.html' with follow=True %}
-    {% for post in page_obj %}  
-      {% include 'includes/post_card.html' %} 
-    {% endfor %}
+    {% load cache %}
+    {% cache 20 index_page with page_obj %}  
+      {% for post in page_obj %}  
+        {% include 'includes/post_card.html' %} 
+      {% endfor %}
+      {% endcache %}
     {% include 'includes/paginator.html' %}
   </div>
 {% endblock %}

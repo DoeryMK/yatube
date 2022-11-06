@@ -100,6 +100,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+QUANTITY = 10
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [

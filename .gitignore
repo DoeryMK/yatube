@@ -145,8 +145,8 @@ dmypy.json
 
 .mypy_cache
 
-# папки со статикой и медиа
-static/
-yatube/posts/static/
+# папки со статикой, медиа, тестами ЯП
+# static/
+# yatube/posts/static/
 yatube/media/
-
+yatube/tests/

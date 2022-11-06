@@ -10,9 +10,10 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import Client, TestCase, override_settings
 from django.urls import reverse
 
+from yatube.settings import QUANTITY
 from posts.models import Comment, Follow, Group, Post, User
 
-QUANTITY = 10
+
 POSTS_QUANTITY = 25
 
 TEMP_MEDIA_ROOT = tempfile.mkdtemp(dir=settings.BASE_DIR)
@@ -100,7 +101,7 @@ class PostViewsTests(TestCase):
         self.authorized_follower.force_login(self.follower)
 
     def data_for_test_of_context(self, response, single_page=False):
-        if single_page is True:
+        if single_page:
             data = response.context['post']
         else:
             data = response.context['page_obj'][0]

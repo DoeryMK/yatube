@@ -5,11 +5,9 @@ from django.views.decorators.cache import cache_page
 
 from .forms import CommentForm, PostForm
 from .models import Follow, Group, Post, User
+from .utils import pages
 
-QUANTITY = 10
 
-
-@cache_page(20, key_prefix='index_page')
 def index(request):
     post_list = Post.objects.select_related('author')
     page_obj = pages(request, post_list)
@@ -140,9 +138,3 @@ def profile_unfollow(request, username):
     if following is True:
         follow.delete()
     return redirect('posts:index')
-
-
-def pages(request, args):
-    paginator = Paginator(args, QUANTITY)
-    page_number = request.GET.get('page')
-    return paginator.get_page(page_number)
